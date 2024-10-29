@@ -7,51 +7,65 @@
     <link rel="stylesheet" href="biblioteca.css">
 </head>
 <body>
-    <form id = "obraform">
-        <label for="nomeObra">Nome da Obra:</label>
-        <input type="text" name="nomeObra" id="nomeObra" maxlength="100" placeholder="Nome da obra...">
-
-        <label for="nomeAutor">Nome do Autor:</label>
-        <input type="text" name="nomeAutor" id="nomeAutor" maxlength="100" placeholder="Nome do autor...">
-
-        <label for="anoObra">Ano da Obra:</label>
-        <input type="text" name="anoObra" id="anoObra" maxlength="4" placeholder="Ano da obra...">
-
-        <label for="periodoObra">Período da Obra:</label>
-        <select name="periodoObra" id="periodoObra">
-            <option value="vazio">Vazio</option>
-            <option value="antesCristo">a.C</option>
-            <option value="depoisCristo">d.C</option>
-        </select>
-
-        <label for="tipoObra">Tipo da Obra:</label>
-        <select name="tipoObra" id="tipoObra">
-            <option value="vazio">Vazio</option>
-            <option value="quadro">Quadro</option>
-            <option value="escultura">Escultura</option>
-            <option value="outro">Outro</option>
-        </select>
-
-        <label for="descricao">Descrição:</label>
-        <textarea name="descricao" id="descricao" maxlength="2000" placeholder="Escreva a descrição..."></textarea>
-
-        <button type = "button" onclick="adicionarObra()">Cadastrar Obra</button>
-    </form>
-
-    <h2>Obras Cadastradas</h2>
-    <table id = "tabelaObras">
-        <thead>
-            <tr>
-                <th>Nome da Obra</th>
-                <th>Nome do Autor</th>
-                <th>Ano da Obra</th>
-                <th>Periodo da Obra</th>
-                <th>Tipo da Obra</th>
-                <th>Descrição da Obra</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
+    <div id="container">
+        <div id="formBox">
+            <form id = "obraform">
+                <div class="formRow">
+                    <label for="nomeObra">Nome da Obra:</label>
+                    <input type="text" name="nomeObra" id="nomeObra" maxlength="100" placeholder="Nome da obra...">
+                </div>
+                <br>
+                <div class="formRow">
+                    <label for="nomeAutor">Nome do Autor:</label>
+                    <input type="text" name="nomeAutor" id="nomeAutor" maxlength="100" placeholder="Nome do autor...">
+                </div>
+                <br>
+                <div class="formRow">
+                    <label for="anoObra">Ano da Obra:</label>
+                    <input type="text" name="anoObra" id="anoObra" maxlength="4" placeholder="Ano da obra...">
+                </div>
+                <br>
+                <div class="formRow">
+                    <label for="periodoObra">Período da Obra:</label>
+                    <select name="periodoObra" id="periodoObra">
+                        <option value="vazio">Vazio</option>
+                        <option value="antesCristo">a.C</option>
+                        <option value="depoisCristo">d.C</option>
+                    </select>
+                </div>
+                <br>
+                <div class="formRow">
+                    <label for="tipoObra">Tipo da Obra:</label>
+                    <select name="tipoObra" id="tipoObra">
+                        <option value="vazio">Vazio</option>
+                        <option value="quadro">Quadro</option>
+                        <option value="escultura">Escultura</option>
+                        <option value="outro">Outro</option>
+                    </select>
+                </div>
+                <br>
+                <div class="formRow">
+                <label for="descricao">Descrição:</label>
+                <textarea name="descricao" id="descricao" maxlength="2000" placeholder="Escreva a descrição..."></textarea>
+                <button type="button" onclick="adicionarObra()">Cadastrar Obra</button>
+                </div>
+                <br>
+            </form>
+        </div>
+        <table id = "tabelaObras">
+            <thead>
+                <tr>
+                    <th>Nome da Obra</th>
+                    <th>Nome do Autor</th>
+                    <th>Ano da Obra</th>
+                    <th>Periodo da Obra</th>
+                    <th>Tipo da Obra</th>
+                    <th>Descrição da Obra</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
 
     <script>
         function adicionarObra(){

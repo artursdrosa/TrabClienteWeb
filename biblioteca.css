@@ -4,6 +4,28 @@
     line-height: 1.6;
 }
 
+#formBox {
+    height: 100%;
+    min-width: 20%;
+    max-width: 30%;
+}
+
+#container {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+}
+
+.formRow {
+    padding: 0%;
+    margin: 0%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
 /* Espaçamento nas laterais da página */
 body {
     margin-left: 2em;
@@ -12,18 +34,21 @@ body {
 
 /* Estilo para tabelas */
 table {
-    width: 100%;
+    width: 80%;
     border-collapse: collapse;
 }
 
 table th {
     background-color: #f2f2f2; /* Ajuste a cor conforme desejado */
     border-bottom: 3px solid #333; /* Ajuste a cor conforme desejado */
+    border-left: 1px solid #777;
     padding: 20px;
     text-align: justify;
 }
 
 table td {
+    height: 50px;
+    border: 1px solid #777;
     padding: 20px;
     vertical-align: top;
     text-align: justify;
@@ -32,7 +57,7 @@ table td {
 }
 
 table tr:last-child td {
-    border-bottom: 1px solid #666; /* Ajuste a cor conforme desejado */
+    border-bottom: 1px solid #ff0000; /* Ajuste a cor conforme desejado */
 }
 
 /* Efeito de seleção na linha da tabela */
@@ -42,6 +67,7 @@ table tr:hover {
 
 /* Estilo para campos de formulário */
 input, textarea, select {
+    width: 90%;
     font-size: 1.5em;
     padding: 5px;
     border: 1px solid #444; /* Cor de borda mais escura */
@@ -53,4 +79,14 @@ input:focus, textarea:focus, select:focus {
 
 label {
     font-weight: bold;
+}
+
+textarea {
+    min-width: 200px;
+    max-width: 100%;
+    max-height: fit-content;
+}
+
+button {
+    margin-top: 20px;
 }
