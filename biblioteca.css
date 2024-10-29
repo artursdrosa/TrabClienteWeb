@@ -1,0 +1,56 @@
+/* Fonte padrão para a página */
+* {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Espaçamento nas laterais da página */
+body {
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
+/* Estilo para tabelas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th {
+    background-color: #f2f2f2; /* Ajuste a cor conforme desejado */
+    border-bottom: 3px solid #333; /* Ajuste a cor conforme desejado */
+    padding: 20px;
+    text-align: justify;
+}
+
+table td {
+    padding: 20px;
+    vertical-align: top;
+    text-align: justify;
+    word-wrap: break-word;
+    font-size: 1em;
+}
+
+table tr:last-child td {
+    border-bottom: 1px solid #666; /* Ajuste a cor conforme desejado */
+}
+
+/* Efeito de seleção na linha da tabela */
+table tr:hover {
+    background-color: #eaeaea; /* Ajuste a cor conforme desejado */
+}
+
+/* Estilo para campos de formulário */
+input, textarea, select {
+    font-size: 1.5em;
+    padding: 5px;
+    border: 1px solid #444; /* Cor de borda mais escura */
+}
+
+input:focus, textarea:focus, select:focus {
+    background-color: #f0f8ff; /* Ajuste a cor para destaque */
+}
+
+label {
+    font-weight: bold;
+}
