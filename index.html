@@ -3,22 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela de Login</title>
+    <title>Cadastro de Obras de Museu</title>
+    <link rel="stylesheet" href="biblioteca.css">
 </head>
 <body>
-    <form>
+    <form id = "obraform">
         <label for="nomeObra">Nome da Obra:</label>
-        <input type="text" name="nomeObra" id="nomeObra" placeholder="Nome da obra...">
+        <input type="text" name="nomeObra" id="nomeObra" maxlength="100" placeholder="Nome da obra...">
+
         <label for="nomeAutor">Nome do Autor:</label>
-        <input type="text" name="nomeAutor" id="nomeAutor" placeholder="Nome do autor...">
+        <input type="text" name="nomeAutor" id="nomeAutor" maxlength="100" placeholder="Nome do autor...">
+
         <label for="anoObra">Ano da Obra:</label>
-        <input type="text" name="anoObra" id="anoObra" placeholder="Ano da obra...">
+        <input type="text" name="anoObra" id="anoObra" maxlength="4" placeholder="Ano da obra...">
+
         <label for="periodoObra">Período da Obra:</label>
         <select name="periodoObra" id="periodoObra">
             <option value="vazio">Vazio</option>
             <option value="antesCristo">a.C</option>
             <option value="depoisCristo">d.C</option>
         </select>
+
         <label for="tipoObra">Tipo da Obra:</label>
         <select name="tipoObra" id="tipoObra">
             <option value="vazio">Vazio</option>
@@ -26,9 +31,71 @@
             <option value="escultura">Escultura</option>
             <option value="outro">Outro</option>
         </select>
+
         <label for="descricao">Descrição:</label>
-        <textarea name="descricao" id="descricao" placeholder="Escreva a descrição..."></textarea>
+        <textarea name="descricao" id="descricao" maxlength="2000" placeholder="Escreva a descrição..."></textarea>
+
+        <button type = "button" onclick="adicionarObra()">Cadastrar Obra</button>
     </form>
+
+    <h2>Obras Cadastradas</h2>
+    <table id = "tabelaObras">
+        <thead>
+            <tr>
+                <th>Nome da Obra</th>
+                <th>Nome do Autor</th>
+                <th>Ano da Obra</th>
+                <th>Periodo da Obra</th>
+                <th>Tipo da Obra</th>
+                <th>Descrição da Obra</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        function adicionarObra(){
+            const nomeObra = document.getElementById("nomeObra").value;
+            const nomeAutor = document.getElementById("nomeAutor").value;
+            const anoObra = document.getElementById("anoObra").value;
+            const periodoObra = document.getElementById("periodoObra").value;
+            const tipoObra = document.getElementById("tipoObra").value;
+            const descricao = document.getElementById("descricao").value;
+
+            if(!nomeObra || !nomeAutor || !anoObra){
+                alert("Por favor, preencha os campos obrigatórios.")
+                return;
+            }
+
+            const tabela = document.getElementById("tabelaObras").querySelector("tbody");
+            const novaLinha = tabela.insertRow();
+
+            novaLinha.insertCell().innerText = nomeObra;
+            novaLinha.insertCell().innerText = nomeAutor;
+            novaLinha.insertCell().innerText = anoObra;
+            novaLinha.insertCell().innerText = periodoObra || "N/A";
+            novaLinha.insertCell().innerText = tipoObra || "N/A";
+
+            const cellAcoes = novaLinha.insertCell();
+            const botaoExibirDescricao = document.createElement("button");
+            botaoExibirDescricao.innerText = "Ver Descrição";
+            botaoExibirDescricao.onclick = () => {
+                alert("Descrição: " + descricao);
+            };
+            cellAcoes.appendChild(botaoExibirDescricao);
+
+            const botaoExcluir = document.createElement("button");
+            botaoExcluir.innerText = "Excluir";
+            botaoExcluir.onclick = () => {
+                if(confirm("Tem certeza que quer excluir essa obra?")){
+                    tabela.deleteRow(novaLinha.rowIndex - 1);
+                }
+            };
+            cellAcoes.appendChild(botaoExcluir);
+
+            document.getElementById("obraForm").reset();
+        }
+    </script>
 </body>
 </html>
 
